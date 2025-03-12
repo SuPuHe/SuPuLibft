@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omizin <omizin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 12:35:06 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/11 17:25:11 by omizin           ###   ########.fr       */
+/*   Created: 2025/03/10 13:34:18 by omizin            #+#    #+#             */
+/*   Updated: 2025/03/10 14:22:03 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *block, size_t size)
+int	ft_toupper(int c)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)block;
-	while (size--)
-	{
-		*ptr = 0;
-		ptr++;
-	}
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

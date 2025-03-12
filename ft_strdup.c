@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omizin <omizin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 12:35:06 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/11 17:25:11 by omizin           ###   ########.fr       */
+/*   Created: 2025/03/11 17:35:02 by omizin            #+#    #+#             */
+/*   Updated: 2025/03/11 17:44:29 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *block, size_t size)
+char	*ft_strdup(const char *s)
 {
-	unsigned char	*ptr;
+	int		i;
+	char	*word;
 
-	ptr = (unsigned char *)block;
-	while (size--)
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	word = (char *)malloc(sizeof(char) * (i + 1));
+	if (!word)
+		return ((void *)0);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		*ptr = 0;
-		ptr++;
+		word[i] = s[i];
+		i++;
 	}
+	word[i] = '\0';
+	return (word);
 }

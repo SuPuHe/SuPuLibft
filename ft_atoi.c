@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omizin <omizin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 12:35:06 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/11 17:25:11 by omizin           ###   ########.fr       */
+/*   Created: 2025/03/11 17:06:00 by omizin            #+#    #+#             */
+/*   Updated: 2025/03/11 17:30:54 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *block, size_t size)
+int	ft_atoi(const char *string)
 {
-	unsigned char	*ptr;
+	int	i;
+	int	negative;
+	int	result;
 
-	ptr = (unsigned char *)block;
-	while (size--)
+	i = 0;
+	negative = 1;
+	result = 0;
+	while (string[i] == ' ' || (string[i] >= 9 && string[i] <= 13))
+		i++;
+	if (string[i] == '+' || string[i] == '-')
 	{
-		*ptr = 0;
-		ptr++;
+		if (string[i] == '-')
+			negative *= -1;
+		i++;
 	}
+	while (string[i] >= '0' && string[i] <= '9')
+	{
+		result = (result * 10) + (string[i] - 48);
+		i++;
+	}
+	return (result * negative);
 }

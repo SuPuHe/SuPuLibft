@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omizin <omizin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 12:35:06 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/11 17:25:11 by omizin           ###   ########.fr       */
+/*   Created: 2025/03/10 15:11:08 by omizin            #+#    #+#             */
+/*   Updated: 2025/03/11 16:48:43 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *block, size_t size)
+char	*ft_strrchr(const char *string, int c)
 {
-	unsigned char	*ptr;
+	char	*found;
 
-	ptr = (unsigned char *)block;
-	while (size--)
+	found = (void *)0;
+	while (*string)
 	{
-		*ptr = 0;
-		ptr++;
+		if (*string == (char)c)
+			found = (char *)string;
+		string++;
 	}
+	if (c == '\0')
+		return ((char *)string);
+	return (found);
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omizin <omizin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 12:35:06 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/11 17:25:11 by omizin           ###   ########.fr       */
+/*   Created: 2025/03/11 18:04:28 by omizin            #+#    #+#             */
+/*   Updated: 2025/03/12 09:56:10 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *block, size_t size)
+void	*ft_calloc(size_t count, size_t eltsize)
 {
-	unsigned char	*ptr;
+	void	*ptr;
+	size_t	size;
 
-	ptr = (unsigned char *)block;
-	while (size--)
-	{
-		*ptr = 0;
-		ptr++;
-	}
+	size = count * eltsize;
+	if ((count > 0) && (size / count != eltsize))
+		return ((void *)0);
+	ptr = (void *)malloc(size);
+	if (!ptr)
+		return ((void *)0);
+	ft_bzero(ptr, size);
+	return (ptr);
 }
