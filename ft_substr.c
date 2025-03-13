@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 12:18:14 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/12 15:42:51 by omizin           ###   ########.fr       */
+/*   Created: 2025/03/12 10:24:50 by omizin            #+#    #+#             */
+/*   Updated: 2025/03/12 15:43:13 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*word;
 	size_t	i;
-	size_t	dest_length;
-	size_t	src_length;
+	size_t	string_len;
 
-	dest_length = ft_strlen(dst);
-	src_length = ft_strlen(src);
-	if (dest_length >= dstsize)
-		return (dstsize + src_length);
+	if (!s)
+		return ((void *)0);
+	string_len = ft_strlen(s);
+	if (start >= string_len)
+		return (ft_calloc(1, sizeof(char)));
+	if (len > string_len - start)
+		len = string_len - start;
+	word = (char *)malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return ((void *)0);
 	i = 0;
-	while (src[i] != '\0' && ((dstsize - 1) > (dest_length + i)))
+	while (i < len)
 	{
-		dst[dest_length + i] = src[i];
+		word[i] = s[start + i];
 		i++;
 	}
-	dst[dest_length + i] = '\0';
-	return (dest_length + src_length);
+	word[i] = '\0';
+	return (word);
 }

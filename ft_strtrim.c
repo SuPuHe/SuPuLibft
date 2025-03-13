@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 15:54:20 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/12 15:43:04 by omizin           ###   ########.fr       */
+/*   Created: 2025/03/12 12:50:31 by omizin            #+#    #+#             */
+/*   Updated: 2025/03/12 15:43:10 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	j;
+	char	*word;
+	size_t	start;
+	size_t	end;
 
-	if (*needle == '\0')
-		return ((char *)haystack);
-	if (len == 0)
+	if (!s1 || !set)
 		return ((void *)0);
-	j = 0;
-	i = 0;
-	while (haystack[i + j] != '\0')
-	{
-		j = 0;
-		while ((haystack[i + j] == needle[j]) && (i + j) < len)
-		{
-			if (needle[j + 1] == '\0')
-				return ((char *)&haystack[i]);
-			j++;
-		}
-		i++;
-	}
-	return ((void *)0);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	word = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (!word)
+		return ((void *)0);
+	ft_strlcpy(word, (s1 + start), (end - start + 1));
+	word[end - start] = '\0';
+	return (word);
 }

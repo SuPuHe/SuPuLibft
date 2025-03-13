@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omizin <omizin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:34:44 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/11 12:49:19 by omizin           ###   ########.fr       */
+/*   Updated: 2025/03/13 10:23:46 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	src_length;
 	size_t	i;
 
-	if (!src)
-		return (0);
 	src_length = ft_strlen(src);
-	if (!dst || dstsize == 0)
+	if (dstsize == 0)
 		return (src_length);
 	i = 0;
 	while (src[i] != '\0' && (dstsize - 1) > i)
