@@ -6,7 +6,7 @@
 /*   By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:41:00 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/13 12:24:07 by omizin           ###   ########.fr       */
+/*   Updated: 2025/03/14 13:06:41 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,13 @@ char	*ft_itoa(int n)
 		return ((void *)0);
 	str[len] = '\0';
 	if (num < 0)
-	{
-		str[0] = '-';
 		num = -num;
-	}
 	while (len--)
 	{
-		if (str[len] == '-')
-			break ;
 		str[len] = (num % 10) + '0';
 		num = num / 10;
 	}
+	if (n < 0)
+		str[0] = '-';
 	return (str);
 }

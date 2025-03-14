@@ -6,7 +6,7 @@
 /*   By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:58:37 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/12 17:39:11 by omizin           ###   ########.fr       */
+/*   Updated: 2025/03/14 11:36:40 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ static char	*ft_word_sep(const char *start, const char *end)
 	return (word);
 }
 
+static void	ft_arr_free(char **words, int i)
+{
+	while (i > 0)
+		free(words[--i]);
+	free(words);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char		**words;
@@ -67,6 +74,8 @@ char	**ft_split(char const *s, char c)
 			while (*s != c && *s)
 				s++;
 			words[i] = ft_word_sep(start, s);
+			if (!words)
+				ft_arr_free(words, i);
 			i++;
 		}
 		else

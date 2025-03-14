@@ -6,7 +6,7 @@
 #    By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 10:30:09 by omizin            #+#    #+#              #
-#    Updated: 2025/03/13 18:14:39 by omizin           ###   ########.fr        #
+#    Updated: 2025/03/14 10:41:39 by omizin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,10 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 OBJ = $(SRCS:.c=.o)
-BSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-		ft_lstadd_back.c ft_lstdelone.c
-BOBJ = $(BSRCS:.c=.o)
+B_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+		ft_lstmap.c
+B_OBJ = $(B_SRCS:.c=.o)
 INC = libft.h
 RM = rm -f
 
@@ -33,13 +34,13 @@ RM = rm -f
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(BOBJ)
-	ar rcs $(NAME) $(OBJ) $(BOBJ)
+bonus: $(OBJ) $(B_OBJ)
+	ar rcs $(NAME) $(OBJ) $(B_OBJ)
 
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJ) $(BOBJ)
+	$(RM) $(OBJ) $(B_OBJ)
 
 fclean: clean
 	$(RM) $(NAME)

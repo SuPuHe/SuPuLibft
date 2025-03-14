@@ -6,7 +6,7 @@
 /*   By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:54:20 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/12 15:43:04 by omizin           ###   ########.fr       */
+/*   Updated: 2025/03/14 13:01:57 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *)haystack);
 	if (len == 0)
 		return ((void *)0);
-	j = 0;
 	i = 0;
-	while (haystack[i + j] != '\0')
+	while (haystack[i] != '\0' && i < len)
 	{
 		j = 0;
 		while ((haystack[i + j] == needle[j]) && (i + j) < len)

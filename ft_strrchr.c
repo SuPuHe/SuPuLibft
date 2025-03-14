@@ -6,22 +6,22 @@
 /*   By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:11:08 by omizin            #+#    #+#             */
-/*   Updated: 2025/03/13 16:40:58 by omizin           ###   ########.fr       */
+/*   Updated: 2025/03/14 13:46:17 by omizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *string, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*found;
 
 	found = (void *)0;
-	while (*string)
+	while (*s)
 	{
-		if (*string == (char)c)
-			found = (char *)string;
-		string++;
+		if (*s == (char)c)
+			found = (char *)s;
+		s++;
 	}
-	if (c == '\0')
-		return ((char *)string);
+	if ((char)c == '\0')
+		return ((char *)s);
 	return (found);
 }
