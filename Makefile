@@ -6,7 +6,7 @@
 #    By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 10:30:09 by omizin            #+#    #+#              #
-#    Updated: 2025/03/14 10:41:39 by omizin           ###   ########.fr        #
+#    Updated: 2025/03/14 13:56:22 by omizin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,10 @@ B_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 		ft_lstmap.c
 B_OBJ = $(B_SRCS:.c=.o)
-INC = libft.h
 RM = rm -f
 
 .c.o:
-	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
