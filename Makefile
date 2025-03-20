@@ -6,12 +6,12 @@
 #    By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 10:30:09 by omizin            #+#    #+#              #
-#    Updated: 2025/03/14 13:56:22 by omizin           ###   ########.fr        #
+#    Updated: 2025/03/20 15:46:04 by omizin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
@@ -34,7 +34,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 bonus: $(OBJ) $(B_OBJ)
-	ar rcs $(NAME) $(OBJ) $(B_OBJ)
+	@ar rcs $(NAME) $(OBJ) $(B_OBJ)
 
 all: $(NAME)
 
