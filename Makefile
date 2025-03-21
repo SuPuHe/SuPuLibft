@@ -6,7 +6,7 @@
 #    By: omizin <omizin@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 10:30:09 by omizin            #+#    #+#              #
-#    Updated: 2025/03/21 11:56:15 by omizin           ###   ########.fr        #
+#    Updated: 2025/03/21 12:22:46 by omizin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,8 @@ $(OBJ_DIR)/%.o: $(SRCS_DIR)/%.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(B_OBJ)
+	ar rcs $(NAME) $(OBJ) $(B_OBJ)
 
 bonus: $(OBJ) $(B_OBJ)
 	@ar rcs $(NAME) $(OBJ) $(B_OBJ)
